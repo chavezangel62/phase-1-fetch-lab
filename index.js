@@ -1,7 +1,18 @@
-function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
-}
+// function fetchBooks() {
+//   // To pass the tests, don't forget to return your fetch!
+const fetchBooks = () => {
+
+   return fetch("https://anapioficeandfire.com/api/books")
+    .then(response => response.json())
+    .then(bookdata => {
+      renderBooks(bookdata);      //use console.log() and debugger to help with issues
+    })
+    .catch(error => {
+      console.alert('Error fetching data!', error);
+    });
+};
+
+fetchBooks();         // Don't foget to invoke on function expressions.
 
 function renderBooks(books) {
   const main = document.querySelector('main');
